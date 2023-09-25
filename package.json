@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "parcel",
-    "build": "rm -rf docs/ dist/ && parcel build --public-url=''"
+    "build": "rm -rf docs/ dist/ && parcel build --public-url='' && sed -i 's/%27%27/./g' ./docs/index.html"
   },
   "dependencies": {
     "react": "^18.2.0",

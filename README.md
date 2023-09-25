@@ -1,8 +1,8 @@
-# My Portfolio<a name="readme-top"></a>
+# wesleytjames.com<a name="readme-top"></a>
 
 <div align="center">
 
-  <h3><b>Daniel Rodriguez </b></h3>
+  <h3><b>Daniel Rodriguez</b></h3>
 
 </div>
 
@@ -54,14 +54,14 @@ This app is a landing page and appointment booking calendar for a personal train
 
 - **Landing Page**
 - **Feature Products**
-- **Booking Calendar**
+- **Booking Calendar - connected with adcuity**
 - **Online Pay**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [See Live Demo](https://drod86.github.io/[repo-name])
+- [See Live Demo](https://drod86.github.io/wesleytjames)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,7 +85,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Drod86/[repo-name].git
+  git clone https://github.com/Drod86/wesleytjames.git
 ```
 
 ### Install
@@ -96,7 +96,7 @@ Run this command:
 
 ```sh
   cd my-project
-  npm install
+  yarn install
 ```
 
 ### Usage
@@ -104,7 +104,7 @@ Run this command:
 To run the project, execute the following command:
 
 ```sh
-  npm start
+  yarn start
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -120,15 +120,17 @@ To run the project, execute the following command:
 
 ## 👥 Collaborator(s) <a name="authors"></a>
 
-👤 **Collaborator's Name**
+👤 **Brina Patino**
 
-- GitHub: [@Username](https://github.com/Username)
+- Email: [Coach Bri](coachbripatino@gmail.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
-- [ ] **Future Feature1**
-- [ ] **Future Feature2**
+- [ ] **Navigation Bar**
+- [ ] **Feature Product Cards**
+- [ ] **Booking Calendar View**
+- [ ] **Highlights section**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
