@@ -28,9 +28,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [project-name] <a name="about-project"></a>
+# 📖 [wesleytjames.com] <a name="about-project"></a>
 
-This template is set up to use ES6 modules and scss in css modules format  to use a component focused approach to build a static web app for github pages. Microverse student linter configurations are in place.
+This app is a landing page and appointment booking calendar for a personal trainer.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -39,6 +39,7 @@ This template is set up to use ES6 modules and scss in css modules format  to us
 - HTML
 - CSS
 - JAVASCRIPT
+- REACT
 
 <details>
   <summary>Client</summary>
@@ -51,9 +52,10 @@ This template is set up to use ES6 modules and scss in css modules format  to us
 
 ### Key Features <a name="key-features"></a>
 
-- **Key Feature1**
-- **Key Feature2**
-- **Key Feature3**
+- **Landing Page**
+- **Feature Products**
+- **Booking Calendar**
+- **Online Pay**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

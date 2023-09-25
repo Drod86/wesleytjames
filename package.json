@@ -1,8 +1,8 @@
 {
-  "name": "react_app_template",
+  "name": "wesleytjames.com",
   "version": "1.0.0",
-  "description": "React app start files with parcel",
-  "repository": "https://github.com/Drod86/resume-generator.git",
+  "description": "Persnal Trainning booking app",
+  "repository": "https://github.com/Drod86/wesleytjames",
   "author": "Daniel Rodriguez <daniel.r.rodriguez86@gmail.com>",
   "license": "MIT",
   "source": "src/index.html",
