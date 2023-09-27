@@ -27157,16 +27157,163 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "App", ()=>App);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
 function App() {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-        children: "Let's start building wesleytjames.com"
+    _s();
+    // Prepare state hook for welcome message
+    const [welcomeMessage, setWelcomeMessage] = (0, _react.useState)("");
+    // Prepare state hook for users list
+    const [usersList, setUsersList] = (0, _react.useState)([]);
+    // Create async function for fetching welcome message
+    const fetchMessage = async ()=>{
+        // Use Fetcch API to fetch '/api' endpoint
+        const message = await fetch("/api").then((res)=>res.text()) // process incoming data
+        ;
+        // Update welcomeMessage state
+        setWelcomeMessage(message);
+    };
+    // Use useEffect to call fetchMessage() on initial render 
+    (0, _react.useEffect)(()=>{
+        fetchMessage();
+    }, []);
+    // Create async functio for fetching users list
+    const fetchUsers = async ()=>{
+        const users = await fetch("/users/all").then((res)=>res.json()) // Process the incoming data
+        ;
+        // Update usersList state
+        setUsersList(users);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "app",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+            className: "app-header",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: welcomeMessage
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 37,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    onClick: fetchUsers,
+                    children: "Fetch users"
+                }, void 0, false, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 40,
+                    columnNumber: 9
+                }, this),
+                usersList.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("table", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("thead", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "ID"
+                                    }, void 0, false, {
+                                        fileName: "src/components/App.js",
+                                        lineNumber: 46,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "Username"
+                                    }, void 0, false, {
+                                        fileName: "src/components/App.js",
+                                        lineNumber: 47,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "Name"
+                                    }, void 0, false, {
+                                        fileName: "src/components/App.js",
+                                        lineNumber: 48,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("th", {
+                                        children: "Email"
+                                    }, void 0, false, {
+                                        fileName: "src/components/App.js",
+                                        lineNumber: 49,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/components/App.js",
+                                lineNumber: 45,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "src/components/App.js",
+                            lineNumber: 44,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tbody", {
+                            children: usersList.map(({ user: UserUI })=>{
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: user.id
+                                        }, void 0, false, {
+                                            fileName: "src/components/App.js",
+                                            lineNumber: 57,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: user.username
+                                        }, void 0, false, {
+                                            fileName: "src/components/App.js",
+                                            lineNumber: 58,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: user.name
+                                        }, void 0, false, {
+                                            fileName: "src/components/App.js",
+                                            lineNumber: 59,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("td", {
+                                            children: user.email
+                                        }, void 0, false, {
+                                            fileName: "src/components/App.js",
+                                            lineNumber: 60,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, user.id, true, {
+                                    fileName: "src/components/App.js",
+                                    lineNumber: 56,
+                                    columnNumber: 17
+                                }, this);
+                            })
+                        }, void 0, false, {
+                            fileName: "src/components/App.js",
+                            lineNumber: 53,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/App.js",
+                    lineNumber: 43,
+                    columnNumber: 34
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "src/components/App.js",
+            lineNumber: 35,
+            columnNumber: 7
+        }, this)
     }, void 0, false, {
         fileName: "src/components/App.js",
-        lineNumber: 2,
-        columnNumber: 10
+        lineNumber: 34,
+        columnNumber: 5
     }, this);
 }
+_s(App, "Rbsbx3UB5tv4DANmpO+OkeTwslQ=");
 _c = App;
+exports.default = App;
 var _c;
 $RefreshReg$(_c, "App");
 
@@ -27175,7 +27322,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
