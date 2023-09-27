@@ -1,26 +1,28 @@
 {
-  "roddan123": {
-    "id": "roddan123",
+  "daniel.r.rodriguez86@gmail.com": {
     "firstName": "Daniel",
     "lastName": "Rodriguez",
     "email": "daniel.r.rodriguez86@gmail.com",
     "appointments": ["2023-09-27T11:00", "2023-09-29T11:00"],
-    "credits": 0
+    "credits": 0,
+    "password": "1234"
   },
-  "smijoh123": {
+  "john.smith@gmail.com": {
     "id": "smijoh123",
     "firstName": "John",
     "lastName": "Smith",
     "email": "john.smith@gmail.com",
     "appointments": [],
-    "credits": 1
+    "credits": 1,
+    "password": "1234"
   },
-  "doejan123": {
+  "jane.doe@gmail.com": {
     "id": "doejan123",
     "firstName": "Jane",
     "lastName": "Doe",
     "email": "jane.doe@gmail.com",
     "appointments": [],
-    "credits": 2
+    "credits": 2,
+    "password": "1234"
   }
 }
