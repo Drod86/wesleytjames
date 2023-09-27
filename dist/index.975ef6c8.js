@@ -2948,6 +2948,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _app = require("./components/App");
 var _appDefault = parcelHelpers.interopDefault(_app);
+var _indexCss = require("./css/index.css");
 const container = document.getElementById("app");
 const root = (0, _client.createRoot)(container);
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
@@ -2961,7 +2962,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./components/App":"ey9du","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./components/App":"ey9du","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./css/index.css":"lyxGu"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27490,6 +27491,6 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
+},{"7422ead32dcc1e6b":"786KC"}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
 
 //# sourceMappingURL=index.975ef6c8.js.map
