@@ -1,18 +1,15 @@
 @keyframes fadeIn {
   from {
-    display: none;
     opacity: 0;
     transform: scale(1%);
   }
 
-  50% {
-    /* transform: scale(50%); */
+  60% {
     opacity: 0;
   }
 
   to {
     opacity: 1;
-    display: inline-block;
   }
 }
 
@@ -34,6 +31,25 @@
   }
 }
 
+@keyframes flipForward {
+  from {
+    transform: skewY(-15deg) rotateY(0deg);
+  }
+  to {
+    transform: skewY(-15deg) rotateY(180deg);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0;
+    /* transform: skewY(15deg); */
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .product-card {
   padding: 1.2rem;
   display: flex;
@@ -41,15 +57,32 @@
   justify-content: space-around;
   align-items: center;
   gap: .6rem;
-  transform: skewY(-15deg);
   border-radius: .3rem;
   min-width: 7.5rem;
   height: fit-content;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transform: skewY(-15deg);
 }
 
 .product-card > * {
-  animation: fadeIn 4s ease-in-out;
-  /* display: none; */
+  animation: fadeIn .25s ease-in-out;
+}
+
+.back {
+  animation: flipForward .75s ease-out;
+}
+
+.back > * {
+  animation: fadeOut .75s ease-out;
+}
+
+.forward {
+  animation: flipForward .75s ease-out;
+}
+
+.forward > * {
+  animation: fadeOut .75s ease-out;
 }
 
 .product-card:hover::before {

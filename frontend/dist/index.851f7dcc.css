@@ -111,38 +111,8 @@ main {
 }
 
 @keyframes fadeToScale {
-  from {
-    opacity: 0;
-    transform: scale(.1);
-  }
-
-  50% {
-    opacity: 0;
-    transform: scale(.1);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes myAnim2 {
-  50% {
-    transform-origin: 50% 100%;
-    transform: scale(0);
-  }
-
-  100% {
-    transform-origin: 50% 100%;
-    transform: scale(1);
-  }
-}
-
-@keyframes myAnim {
   0% {
     opacity: 0;
-    transform: scaleY(0);
   }
 
   50% {
@@ -160,13 +130,15 @@ main {
 }
 
 .slideshow {
+  transform-style: preserve-3d;
+  transform-origin: center;
   justify-content: center;
   align-items: center;
   gap: 1.2rem;
   height: -moz-fit-content;
   height: fit-content;
-  margin: auto;
-  animation: 3s myAnim;
+  transition: transform 1s;
+  animation: 3s fadeToScale;
   display: flex;
 }
 
@@ -215,17 +187,15 @@ main {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    display: none;
     transform: scale(.01);
   }
 
-  50% {
+  60% {
     opacity: 0;
   }
 
   to {
     opacity: 1;
-    display: inline-block;
   }
 }
 
@@ -247,7 +217,29 @@ main {
   }
 }
 
+@keyframes flipForward {
+  from {
+    transform: skewY(-15deg)rotateY(0);
+  }
+
+  to {
+    transform: skewY(-15deg)rotateY(180deg);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 .product-card {
+  transform-style: preserve-3d;
+  transform-origin: center;
   border-radius: .3rem;
   flex-direction: column;
   justify-content: space-around;
@@ -262,7 +254,23 @@ main {
 }
 
 .product-card > * {
-  animation: 4s ease-in-out fadeIn;
+  animation: .25s ease-in-out fadeIn;
+}
+
+.back {
+  animation: .75s ease-out flipForward;
+}
+
+.back > * {
+  animation: .75s ease-out fadeOut;
+}
+
+.forward {
+  animation: .75s ease-out flipForward;
+}
+
+.forward > * {
+  animation: .75s ease-out fadeOut;
 }
 
 .product-card:hover:before {
