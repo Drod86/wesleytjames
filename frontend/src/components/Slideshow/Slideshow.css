@@ -1,0 +1,106 @@
+@keyframes fadeToScale {
+  from {
+    opacity: 0;
+    transform: scale(10%);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(10%);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(100%);
+  }
+}
+
+@keyframes myAnim2 {
+
+
+	50% {
+		transform: scale(0);
+		transform-origin: 50% 100%;
+	}
+
+	100% {
+		transform: scale(1);
+		transform-origin: 50% 100%;
+	}
+}
+
+@keyframes myAnim {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+	75% {
+    opacity: 1;
+		transform: scaleY(.1);
+	}
+
+	100% {
+		transform: scaleY(1);
+	}
+}
+
+.slideshow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: auto;
+  height: fit-content;
+  /* animation: fadeToScale 5s ease-in-out; */
+  /* animation: myAnim 3s ease-in-out; */
+  animation: myAnim 3s ease 0s 1 normal;
+}
+
+.back-button {
+  background-color: transparent;
+  border: none;
+    width: 0;
+      height: 0;
+      border-top: 100px solid transparent;
+      border-right: 50px solid black;
+      border-bottom: 100px solid transparent;
+      margin: auto 0;
+}
+
+.forward-button {
+  background-color: transparent;
+  border: none;
+    width: 0;
+      height: 0;
+      border-top: 100px solid transparent;
+      border-left: 50px solid black;
+      border-bottom: 100px solid transparent;
+      margin: auto 0;
+}
+
+.back-button:hover {
+  border-right: 50px solid lime;
+  transition: .15s ease-in all;
+}
+
+.back-button:active {
+  border-right: 50px solid black;
+  transform: scale(95%);
+  transition: .15s ease-in all;
+}
+
+.forward-button:hover {
+  border-left: 50px solid lime;
+  transition: .15s ease-in all;
+}
+
+.forward-button:active {
+  border-left: 50px solid black;
+  transform: scale(95%);
+  transition: .15s ease-in all;
+}

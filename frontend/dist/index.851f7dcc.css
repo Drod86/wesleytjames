@@ -1,0 +1,355 @@
+.header {
+  color: #fff;
+  z-index: 200;
+  background: #000;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 4.5rem;
+  padding: 0 4.8rem;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header h1 {
+  color: #fff;
+  margin: 0;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-style: italic;
+  transition: all .25s ease-in;
+}
+
+.logo-text:hover {
+  transform: scale(1.05);
+}
+
+.logo-text:active {
+  transform: scale(1);
+}
+
+.sub {
+  color: #0f0;
+  font-size: 2rem;
+}
+
+.nav {
+  z-index: 1;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
+
+.nav-item {
+  border: 1px solid #0000;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.2rem;
+  list-style: none;
+  display: flex;
+  transform: skewX(-15deg);
+}
+
+.nav-item a {
+  transform: skewX(15deg);
+}
+
+.nav-item:hover {
+  background-color: #32cd32;
+  border: 1px solid #fff;
+}
+
+.nav-item:active {
+  background-color: #32cd32;
+  border: 1px solid #32cd32;
+}
+
+.button {
+  font: inherit;
+  color: #fff;
+  cursor: pointer;
+  background: #32cd32;
+  border: 1px solid #0f0;
+  border-radius: 3px;
+  margin: 1.2rem;
+  padding: .5rem 2rem;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  transition: all .25s ease-in;
+  transform: scale(1.05);
+}
+
+.button:active {
+  transition: all 50ms ease-in;
+  transform: scale(1);
+}
+
+main {
+  background-image: linear-gradient(#fafafa80 98%, #0f0), url("https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?cs=srgb&dl=pexels-li-sun-2294361.jpg&fm=jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding: 3.5rem 4.8rem;
+}
+
+.hero-heading {
+  z-index: 2;
+}
+
+.hero-heading {
+  font-size: 3.5rem;
+}
+
+@keyframes fadeToScale {
+  from {
+    opacity: 0;
+    transform: scale(.1);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(.1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes myAnim2 {
+  50% {
+    transform-origin: 50% 100%;
+    transform: scale(0);
+  }
+
+  100% {
+    transform-origin: 50% 100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+    transform: scaleY(.1);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.slideshow {
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  animation: 3s myAnim;
+  display: flex;
+}
+
+.back-button {
+  background-color: #0000;
+  border: 100px solid #0000;
+  border-left: none;
+  border-right: 50px solid #000;
+  width: 0;
+  height: 0;
+  margin: auto 0;
+}
+
+.forward-button {
+  background-color: #0000;
+  border: 100px solid #0000;
+  border-left: 50px solid #000;
+  border-right: none;
+  width: 0;
+  height: 0;
+  margin: auto 0;
+}
+
+.back-button:hover {
+  border-right: 50px solid #0f0;
+  transition: all .15s ease-in;
+}
+
+.back-button:active {
+  border-right: 50px solid #000;
+  transition: all .15s ease-in;
+  transform: scale(.95);
+}
+
+.forward-button:hover {
+  border-left: 50px solid #0f0;
+  transition: all .15s ease-in;
+}
+
+.forward-button:active {
+  border-left: 50px solid #000;
+  transition: all .15s ease-in;
+  transform: scale(.95);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    display: none;
+    transform: scale(.01);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    display: inline-block;
+  }
+}
+
+@keyframes suddenGrowth {
+  from {
+    transform: skewY(-15deg)scale(.5);
+  }
+
+  50% {
+    transform: skewY(-15deg)scale(.65);
+  }
+
+  75% {
+    transform: skewY(-15deg)scale(.75);
+  }
+
+  to {
+    transform: skewY(-15deg)scale(1);
+  }
+}
+
+.product-card {
+  border-radius: .3rem;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: .6rem;
+  min-width: 7.5rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1.2rem;
+  display: flex;
+  transform: skewY(-15deg);
+}
+
+.product-card > * {
+  animation: 4s ease-in-out fadeIn;
+}
+
+.product-card:hover:before {
+  content: "";
+  border-bottom: 3px solid #0f0;
+  border-right: 3px solid #0f0;
+  border-radius: .3rem;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.product-card .heading {
+  text-align: center;
+  width: 100%;
+}
+
+.product-card .button:hover {
+  transition: all .25s ease-in;
+  transform: skewY(15deg)scale(1.05);
+}
+
+.product-card .button:active {
+  transition: all 50ms ease-in;
+  transform: skewY(15deg)scale(1);
+}
+
+.card0 {
+  background-color: #fff;
+}
+
+.card0 .button {
+  background-color: #32cd32;
+  border: 1px solid #0f0;
+}
+
+.card1 {
+  color: #fff;
+  background-color: #000;
+  border: none;
+  margin: 1.2rem;
+  font-weight: bold;
+  transform: scale(1.3)skewY(-15deg);
+}
+
+.card1 .button {
+  color: #fff;
+  background-color: #0f0;
+  border: 1px solid #00f;
+}
+
+.card2 {
+  background-color: #0f0;
+  border: none;
+}
+
+.card2 .button {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #0f0;
+}
+
+.product-card > * {
+  transform: skewY(15deg);
+}
+
+.product-card li {
+  list-style: none;
+}
+
+.product-card li:before {
+  content: "»";
+  margin: 0 .25rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/*# sourceMappingURL=index.851f7dcc.css.map */

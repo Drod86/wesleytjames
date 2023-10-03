@@ -1,0 +1,132 @@
+@keyframes fadeIn {
+  from {
+    display: none;
+    opacity: 0;
+    transform: scale(1%);
+  }
+
+  50% {
+    /* transform: scale(50%); */
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    display: inline-block;
+  }
+}
+
+@keyframes suddenGrowth {
+  from {
+    transform: skewY(-15deg) scale(50%);
+  }
+
+  50% {
+    transform: skewY(-15deg) scale(65%);
+  }
+
+  75% {
+    transform: skewY(-15deg) scale(75%);
+  }
+
+  to {
+    transform: skewY(-15deg) scale(100%);
+  }
+}
+
+.product-card {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: .6rem;
+  transform: skewY(-15deg);
+  border-radius: .3rem;
+  min-width: 7.5rem;
+  height: fit-content;
+}
+
+.product-card > * {
+  animation: fadeIn 4s ease-in-out;
+  /* display: none; */
+}
+
+.product-card:hover::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-right: 3px solid lime;
+  border-bottom: 3px solid lime;
+  border-radius: .3rem;
+}
+
+.product-card .heading {
+  /* border-bottom: 1px solid inherit; */
+  width: 100%;
+  text-align: center;
+  /* padding-bottom: 1.2rem; */
+}
+
+.product-card .button:hover {
+  transform: skewY(15deg) scale(105%);
+  transition: .25s ease-in all;
+}
+
+.product-card .button:active {
+  transform: skewY(15deg) scale(100%);
+  transition: .05s ease-in all;
+}
+
+.card0 {
+  background-color: white;
+}
+
+.card0 .button {
+  background-color: limegreen;
+  border: 1px solid lime;
+}
+
+.card1 {
+  background-color: black;
+  color: white;
+  transform: scale(130%) skewY(-15deg);
+  margin: 1.2rem;
+  font-weight: bold;
+  border: none;
+}
+
+.card1 .button {
+  border: 1px solid blue;
+  background-color: lime;
+  color: white;
+}
+
+.card2 {
+  background-color: lime;
+  /* color: white; */
+  border: none;
+}
+
+.card2 .button {
+  color: black;
+  background-color: black;
+  border: 1px solid lime;
+  color: white;
+}
+
+.product-card > * {
+  transform: skewY(15deg);
+}
+
+.product-card li {
+  list-style: none;
+}
+
+.product-card li::before {
+  content: "\00BB";
+  margin: 0 .25rem;
+}

@@ -1,0 +1,24 @@
+.button {
+  font: inherit;
+  padding: 0.5rem 2rem;
+  background: limegreen;
+  border: 1px solid lime;
+  color: white;
+  cursor: pointer;
+  margin: 1.2rem;
+  border-radius: 3px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  transform: scale(105%);
+  transition: .25s ease-in all;
+}
+
+.button:active {
+  transform: scale(100%);
+  transition: .05s ease-in all;
+}
