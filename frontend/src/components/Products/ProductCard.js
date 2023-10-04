@@ -7,7 +7,6 @@ export default function ProductCard({product, index, direction}){
   const {title, featureList} = product;
   const orderClass = 'card' + index;
   const newClass = "product-card " + orderClass + " " + direction;
-  console.log(newClass);
   return (
     <div className={newClass}>
       <Heading type={2} text={title} />

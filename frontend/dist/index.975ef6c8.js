@@ -27539,11 +27539,11 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _buttonCss = require("./Button.css");
-const Button = ({ type = "button", text, className = "button", handleClick })=>{
+const Button = ({ type = "button", text, className = "button", handleClick, clickParam })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
         className: className,
         type: type,
-        onClick: handleClick,
+        onClick: ()=>handleClick(clickParam),
         children: text
     }, void 0, false, {
         fileName: "src/components/Button/Button.js",
@@ -27718,7 +27718,8 @@ var _slideshowCss = require("./Slideshow.css");
 var _s = $RefreshSig$();
 function Slideshow() {
     _s();
-    const slides = [
+    // The Slides data and data manipulation methods will be abstracted out
+    const slidesData = [
         {
             title: "Intro",
             featureList: [
@@ -27748,54 +27749,97 @@ function Slideshow() {
                 "fake feature 4",
                 "fake feature 5"
             ]
+        },
+        {
+            title: "Some Product",
+            featureList: [
+                "fake feature 1",
+                "fake feature 2",
+                "fake feature 3",
+                "fake feature 4",
+                "fake feature 5"
+            ]
+        },
+        {
+            title: "Some Other",
+            featureList: [
+                "fake feature 1",
+                "fake feature 2",
+                "fake feature 3",
+                "fake feature 4",
+                "fake feature 5"
+            ]
         }
     ];
-    const [nextSlide, setNextSlide] = (0, _react.useState)("");
-    function back() {
-        setNextSlide("back");
-        // console.log(nextSlide);
-        setTimeout(()=>setNextSlide(""), 500);
+    //////////////////
+    const [slides, setSlides] = (0, _react.useState)(slidesData);
+    const [slideDirection, setSlideDirection] = (0, _react.useState)("");
+    // NOTE: illiminate the need for slide direction
+    function rotateSlides(slideArr, direction) {
+        switch(direction){
+            case "back":
+                {
+                    let slide = slideArr.shift();
+                    setSlides([
+                        ...slideArr,
+                        slide
+                    ]);
+                }
+                break;
+            case "forward":
+                {
+                    let slide = slideArr.pop();
+                    setSlides([
+                        slide,
+                        ...slideArr
+                    ]);
+                }
+                break;
+        }
     }
-    function forward() {
-        setNextSlide("forward");
-        setTimeout(()=>setNextSlide(""), 500);
+    function handleClick(direction) {
+        setSlideDirection(direction);
+        rotateSlides(slides, direction);
+        setTimeout(()=>setSlideDirection(""), 500);
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "slideshow",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 className: "back-button",
-                handleClick: back
+                handleClick: handleClick,
+                clickParam: "back"
             }, void 0, false, {
                 fileName: "src/components/Slideshow/Slideshow.js",
-                lineNumber: 37,
+                lineNumber: 62,
                 columnNumber: 7
             }, this),
-            slides.map((slide, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
+            slides.map((slide, index)=>index < 3 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
                     product: slide,
                     index: index,
-                    direction: nextSlide
+                    direction: slideDirection
                 }, index, false, {
                     fileName: "src/components/Slideshow/Slideshow.js",
-                    lineNumber: 39,
-                    columnNumber: 9
+                    lineNumber: 64,
+                    columnNumber: 22
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 className: "forward-button",
-                handleClick: forward
+                handleClick: handleClick,
+                clickParam: "forward"
             }, void 0, false, {
                 fileName: "src/components/Slideshow/Slideshow.js",
-                lineNumber: 41,
+                lineNumber: 66,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Slideshow/Slideshow.js",
-        lineNumber: 36,
+        lineNumber: 61,
         columnNumber: 5
     }, this);
 }
-_s(Slideshow, "0S/ED+WKm1aR/J9dKK1MukWnvAk=");
+_s(Slideshow, "+gx863WGEHRIylh4D+uMlMYLOlY=");
 _c = Slideshow;
 var _c;
 $RefreshReg$(_c, "Slideshow");
@@ -27827,7 +27871,6 @@ function ProductCard({ product, index, direction }) {
     const { title, featureList } = product;
     const orderClass = "card" + index;
     const newClass = "product-card " + orderClass + " " + direction;
-    console.log(newClass);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: newClass,
         children: [
@@ -27836,27 +27879,27 @@ function ProductCard({ product, index, direction }) {
                 text: title
             }, void 0, false, {
                 fileName: "src/components/Products/productCard.js",
-                lineNumber: 13,
+                lineNumber: 12,
                 columnNumber: 7
             }, this),
             featureList.map((feature, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                     children: feature
                 }, index, false, {
                     fileName: "src/components/Products/productCard.js",
-                    lineNumber: 14,
+                    lineNumber: 13,
                     columnNumber: 44
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 text: "Book it"
             }, void 0, false, {
                 fileName: "src/components/Products/productCard.js",
-                lineNumber: 15,
+                lineNumber: 14,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Products/productCard.js",
-        lineNumber: 12,
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }

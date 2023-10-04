@@ -4,7 +4,8 @@ import ProductCard from "../Products/productCard";
 import './Slideshow.css';
 
 export default function Slideshow(){
-  const slides = [
+  // The Slides data and data manipulation methods will be abstracted out
+  const slidesData = [
     {
       title: 'Intro',
       featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
@@ -17,28 +18,52 @@ export default function Slideshow(){
       title: 'Program',
       featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
     },
+    {
+      title: 'Some Product',
+      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
+    },
+    {
+      title: 'Some Other',
+      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
+    },
   ]
 
-  const [nextSlide, setNextSlide] = useState('');
 
-  function back() {
-    setNextSlide('back');
-    // console.log(nextSlide);
-    setTimeout(() => setNextSlide(''), 500);
+
+  //////////////////
+  const [slides, setSlides] = useState(slidesData)
+  const [slideDirection, setSlideDirection] = useState('');
+
+  // NOTE: illiminate the need for slide direction
+  
+  function rotateSlides(slideArr, direction) {
+    switch(direction) {
+      case 'back': {
+        let slide = slideArr.shift();
+        setSlides([...slideArr, slide]);
+      }
+      break;
+      case 'forward': {
+        let slide = slideArr.pop();
+        setSlides([slide, ...slideArr]);
+      }
+      break;
+    }
   }
 
-  function forward() {
-    setNextSlide('forward');
-    setTimeout(() => setNextSlide(''), 500);
+  function handleClick(direction) {
+    setSlideDirection(direction);
+    rotateSlides(slides, direction);
+    setTimeout(() => setSlideDirection(''), 500);
   }
 
   return (
     <div className="slideshow">
-      <Button className="back-button" handleClick={back}/>
+      <Button className="back-button" handleClick={handleClick} clickParam="back"/>
       {slides.map((slide, index) => (
-        <ProductCard product={slide} key={index} index={index} direction={nextSlide}/>
+        index < 3 && <ProductCard product={slide} key={index} index={index} direction={slideDirection}/>
       ))}
-      <Button className="forward-button" handleClick={forward}/>
+      <Button className="forward-button" handleClick={handleClick} clickParam="forward"/>
     </div>
   )
 }
