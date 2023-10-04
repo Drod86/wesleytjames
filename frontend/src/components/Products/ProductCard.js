@@ -11,7 +11,7 @@ export default function ProductCard({product, index, direction}){
     <div className={newClass}>
       <Heading type={2} text={title} />
       {featureList.map((feature, index) => <li key={index}>{feature}</li>)}
-      <Button text={'Book it'} />
+      <Button text="Book it" type="button" handleClick={() => console.log('clicked')} />
     </div>
   )
 }

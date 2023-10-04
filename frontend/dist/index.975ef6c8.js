@@ -27465,7 +27465,8 @@ function Nav() {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 type: "button",
-                text: "Login"
+                text: "Login",
+                handleClick: ()=>console.log("clicked")
             }, void 0, false, {
                 fileName: "src/components/Nav/Nav.js",
                 lineNumber: 12,
@@ -27890,7 +27891,9 @@ function ProductCard({ product, index, direction }) {
                     columnNumber: 44
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                text: "Book it"
+                text: "Book it",
+                type: "button",
+                handleClick: ()=>console.log("clicked")
             }, void 0, false, {
                 fileName: "src/components/Products/productCard.js",
                 lineNumber: 14,

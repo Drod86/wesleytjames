@@ -9,7 +9,7 @@ export default function Nav() {
       <NavItem text={'Home'} />
       <NavItem text={'Book Me'} />
       <NavItem text={'About'} />
-      <Button type={'button'} text={'Login'} />
+      <Button type={'button'} text={'Login'} handleClick={() => console.log('clicked')}/>
     </nav>
   )
 }
