@@ -27580,6 +27580,8 @@ var _heading = require("../Typography/Heading");
 var _headingDefault = parcelHelpers.interopDefault(_heading);
 var _slideshow = require("../Slideshow/Slideshow");
 var _slideshowDefault = parcelHelpers.interopDefault(_slideshow);
+var _sidebar = require("../Sidebar/Sidebar");
+var _sidebarDefault = parcelHelpers.interopDefault(_sidebar);
 function Main() {
     const patronName = "Daniel";
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
@@ -27590,18 +27592,23 @@ function Main() {
                 className: "hero-heading"
             }, void 0, false, {
                 fileName: "src/components/Main/Main.js",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _slideshowDefault.default), {}, void 0, false, {
                 fileName: "src/components/Main/Main.js",
-                lineNumber: 12,
+                lineNumber: 13,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sidebarDefault.default), {}, void 0, false, {
+                fileName: "src/components/Main/Main.js",
+                lineNumber: 14,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Main/Main.js",
-        lineNumber: 10,
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }
@@ -27614,7 +27621,7 @@ $RefreshReg$(_c, "Main");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Main.css":"h0mnx","../Typography/Heading":"imuFK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Slideshow/Slideshow":"k24pM"}],"h0mnx":[function() {},{}],"imuFK":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Main.css":"h0mnx","../Typography/Heading":"imuFK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Slideshow/Slideshow":"k24pM","../Sidebar/Sidebar":"fHFtW"}],"h0mnx":[function() {},{}],"imuFK":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f26f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27915,6 +27922,160 @@ $RefreshReg$(_c, "ProductCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Typography/Heading":"imuFK","../Button/Button":"bxC6O","./ProductCard.css":"g79ER","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"g79ER":[function() {},{}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Typography/Heading":"imuFK","../Button/Button":"bxC6O","./ProductCard.css":"g79ER","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"g79ER":[function() {},{}],"fHFtW":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$81ce = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$81ce.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Sidebar);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _login = require("../Forms/Login");
+var _loginDefault = parcelHelpers.interopDefault(_login);
+var _sidebarCss = require("./Sidebar.css");
+function Sidebar() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
+            fileName: "src/components/Sidebar/Sidebar.js",
+            lineNumber: 8,
+            columnNumber: 5
+        }, this)
+    }, void 0, false, {
+        fileName: "src/components/Sidebar/Sidebar.js",
+        lineNumber: 7,
+        columnNumber: 5
+    }, this);
+}
+_c = Sidebar;
+var _c;
+$RefreshReg$(_c, "Sidebar");
+
+  $parcel$ReactRefreshHelpers$81ce.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Sidebar.css":"8PMVv","../Forms/Login":"fya3t"}],"8PMVv":[function() {},{}],"fya3t":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ef8a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ef8a.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Login);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _input = require("./Input");
+var _inputDefault = parcelHelpers.interopDefault(_input);
+var _button = require("../Button/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _formsCss = require("./Forms.css");
+function Login() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        className: "login",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "login-email",
+                type: "email",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "email"
+            }, void 0, false, {
+                fileName: "src/components/Forms/Login.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {}, void 0, false, {
+                fileName: "src/components/Forms/Login.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                text: "Login",
+                type: "submit",
+                handleClick: ()=>console.log("login")
+            }, void 0, false, {
+                fileName: "src/components/Forms/Login.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Forms/Login.js",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+}
+_c = Login;
+var _c;
+$RefreshReg$(_c, "Login");
+
+  $parcel$ReactRefreshHelpers$ef8a.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input":"1wn9n","../Button/Button":"bxC6O","./Forms.css":"7PmcA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1wn9n":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b0fb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b0fb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Input);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _inputCss = require("./Input.css");
+function Input({ id, label = "", type, step = null, value, onChange, placeholder }) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "input",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                htmlFor: id,
+                children: label
+            }, void 0, false, {
+                fileName: "src/components/Forms/Input.js",
+                lineNumber: 8,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: type,
+                step: step,
+                id: id,
+                value: value,
+                onChange: onChange,
+                placeholder: placeholder
+            }, void 0, false, {
+                fileName: "src/components/Forms/Input.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Forms/Input.js",
+        lineNumber: 7,
+        columnNumber: 5
+    }, this);
+}
+_c = Input;
+var _c;
+$RefreshReg$(_c, "Input");
+
+  $parcel$ReactRefreshHelpers$b0fb.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input.css":"bDutK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bDutK":[function() {},{}],"7PmcA":[function() {},{}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
 
 //# sourceMappingURL=index.975ef6c8.js.map
