@@ -27166,34 +27166,41 @@ var _mainDefault = parcelHelpers.interopDefault(_main);
 var _s = $RefreshSig$();
 function App() {
     _s();
-    const [authenticating, setAuthenticating] = (0, _react.useState)(false);
-    const [authenticated, setAuthenticated] = (0, _react.useState)(false);
+    const [authenticating, setAuthenticating] = (0, _react.useState)(false); // Can have three values: 2 thruthy values: 'login' or 'register' or the boolean value false
+    const [authenticated, setAuthenticated] = (0, _react.useState)(false); // boolean values true or false
+    const handleAuthToggle = ()=>{
+        setAuthenticated(!authenticated);
+    };
+    const handleLoginToggle = (newState = false)=>{
+        setAuthenticating(newState);
+        console.log(newState);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).Fragment, {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {
                 auth: authenticated,
-                onAuth: ()=>setAuthenticated(!authenticated),
+                onAuth: handleAuthToggle,
                 authing: authenticating,
-                onAuthing: ()=>setAuthenticating(!authenticating)
+                onAuthing: handleLoginToggle
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 10,
+                lineNumber: 18,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainDefault.default), {
                 auth: authenticated,
-                onAuth: ()=>setAuthenticated(!authenticated),
+                onAuth: handleAuthToggle,
                 authing: authenticating,
-                onAuthing: ()=>setAuthenticating(!authenticating)
+                onAuthing: handleLoginToggle
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 13,
+                lineNumber: 21,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 9,
+        lineNumber: 17,
         columnNumber: 5
     }, this);
 }
@@ -27484,31 +27491,34 @@ function Nav({ auth, onAuth, authing, onAuthing }) {
                 columnNumber: 7
             }, this),
             auth ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                className: "sign-out",
+                className: "button button-sign-out",
                 type: "button",
                 text: "sign out",
-                handleClick: onAuth
-            }, void 0, false, {
-                fileName: "src/components/Nav/Nav.js",
-                lineNumber: 12,
-                columnNumber: 15
-            }, this) : authing ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                className: "button button-register",
-                type: "button",
-                text: "Register",
-                handleClick: onAuthing
+                handleClick: ()=>{
+                    onAuth();
+                    onAuthing();
+                }
             }, void 0, false, {
                 fileName: "src/components/Nav/Nav.js",
                 lineNumber: 13,
-                columnNumber: 19
-            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                columnNumber: 11
+            }, this) : !authing || authing === "register" ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 type: "button",
                 text: "Login",
-                handleClick: onAuthing
+                handleClick: ()=>onAuthing("login")
             }, void 0, false, {
                 fileName: "src/components/Nav/Nav.js",
-                lineNumber: 14,
-                columnNumber: 11
+                lineNumber: 17,
+                columnNumber: 13
+            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                className: "button button-register",
+                type: "button",
+                text: "Register",
+                handleClick: ()=>onAuthing("register")
+            }, void 0, false, {
+                fileName: "src/components/Nav/Nav.js",
+                lineNumber: 18,
+                columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
@@ -27989,39 +27999,38 @@ var _s = $RefreshSig$();
 function Sidebar({ auth, onAuth, authing, onAuthing }) {
     _s();
     const [closedSidebar, setclosedSidebar] = (0, _react.useState)(true);
+    console.log(authing);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
         className: !authing && closedSidebar && "closedSidebar",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
                 id: "closeSidebar",
                 label: "close",
-                labelClick: ()=>{
-                    onAuthing(!authing);
-                    setclosedSidebar(authing);
-                },
+                labelClick: ()=>onAuthing(false),
                 type: "checkbox"
             }, void 0, false, {
                 fileName: "src/components/Sidebar/Sidebar.js",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 5
             }, this),
-            closedSidebar ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
-                toggle: ()=>setclosedSidebar(!closedSidebar)
+            authing === "login" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
+                onAuthing: onAuthing
             }, void 0, false, {
                 fileName: "src/components/Sidebar/Sidebar.js",
-                lineNumber: 14,
-                columnNumber: 22
-            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registerDefault.default), {
-                toggle: ()=>setclosedSidebar(!closedSidebar)
+                lineNumber: 15,
+                columnNumber: 29
+            }, this),
+            authing === "register" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registerDefault.default), {
+                onAuthing: onAuthing
             }, void 0, false, {
                 fileName: "src/components/Sidebar/Sidebar.js",
-                lineNumber: 14,
-                columnNumber: 82
+                lineNumber: 16,
+                columnNumber: 32
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Sidebar/Sidebar.js",
-        lineNumber: 10,
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }
@@ -28053,7 +28062,7 @@ var _inputDefault = parcelHelpers.interopDefault(_input);
 var _button = require("../Button/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _formsCss = require("./Forms.css");
-function Login({ toggle }) {
+function Login({ onAuthing }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         className: "login",
         children: [
@@ -28088,7 +28097,10 @@ function Login({ toggle }) {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                 href: "#register",
-                onClick: toggle,
+                onClick: ()=>{
+                    onAuthing("register");
+                    console.log("register123");
+                },
                 children: "Register"
             }, void 0, false, {
                 fileName: "src/components/Forms/Login.js",
@@ -28184,10 +28196,30 @@ var _inputDefault = parcelHelpers.interopDefault(_input);
 var _button = require("../Button/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _formsCss = require("./Forms.css");
-function Register() {
+function Register({ onAuthing }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         className: "register",
         children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "register-name-first",
+                type: "text",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "first name"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "register-name-last",
+                type: "text",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "last name"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
                 id: "register-email",
                 type: "email",
@@ -28195,7 +28227,7 @@ function Register() {
                 placeholder: "email"
             }, void 0, false, {
                 fileName: "src/components/Forms/register.js",
-                lineNumber: 9,
+                lineNumber: 11,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
@@ -28205,7 +28237,17 @@ function Register() {
                 placeholder: "password"
             }, void 0, false, {
                 fileName: "src/components/Forms/register.js",
-                lineNumber: 10,
+                lineNumber: 12,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "register-password-verify",
+                type: "password",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "verify password"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 13,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -28214,7 +28256,31 @@ function Register() {
                 handleClick: ()=>console.log("register")
             }, void 0, false, {
                 fileName: "src/components/Forms/register.js",
-                lineNumber: 11,
+                lineNumber: 14,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: "#login",
+                onClick: ()=>{
+                    onAuthing("login");
+                    console.log("login1 works");
+                },
+                children: "Login"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 15,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: "#login",
+                onClick: ()=>{
+                    onAuthing("login");
+                    console.log("login2 workds");
+                },
+                children: "Login"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 16,
                 columnNumber: 7
             }, this)
         ]

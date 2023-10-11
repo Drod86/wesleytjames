@@ -3,7 +3,7 @@ import Input from "./Input";
 import Button from "../Button/Button";
 import './Forms.css';
 
-export default function Register({toggle}) {
+export default function Register({onAuthing}) {
   return (
     <form className="register">
       <Input id="register-name-first" type="text" onChange={(e) => console.log(e.target.value)} placeholder={'first name'} />
@@ -12,7 +12,7 @@ export default function Register({toggle}) {
       <Input id="register-password" type="password" onChange={(e) => console.log(e.target.value)} placeholder={'password'} />
       <Input id="register-password-verify" type="password" onChange={(e) => console.log(e.target.value)} placeholder={'verify password'} />
       <Button text="Register" type="submit" handleClick={() => console.log('register')} />
-      <a href="#login" onClick={toggle}>Login</a>
+      <a href="#login" onClick={() => {onAuthing('login'); console.log('login1 works')}}>Login</a>
     </form>
   )
 }

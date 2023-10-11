@@ -9,9 +9,14 @@ export default function Nav({auth, onAuth, authing, onAuthing}) {
       <NavItem text={'Home'} />
       <NavItem text={'Book Me'} />
       <NavItem text={'About'} />
-      {auth ? <Button className="sign-out" type="button" text="sign out" handleClick={onAuth} /> :
-        authing ? <Button className="button button-register" type={'button'} text={'Register'} handleClick={onAuthing}/>
-        : <Button type={'button'} text={'Login'} handleClick={onAuthing}/>
+      {auth 
+        ? <Button className="button button-sign-out" type="button" text="sign out" handleClick={() => {
+          onAuth()
+          onAuthing()}} /> 
+        : !authing  || authing === 'register'
+          ? <Button type={'button'} text={'Login'} handleClick={() => onAuthing('login')}/>
+          : <Button className="button button-register" type={'button'} text={'Register'} handleClick={() => onAuthing('register')}/>
+          
       }
     </nav>
   )

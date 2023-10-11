@@ -6,12 +6,14 @@ import Input from "../Forms/Input";
 
 export default function Sidebar({auth, onAuth, authing, onAuthing}) {
   const [closedSidebar, setclosedSidebar] = useState(true);
+  console.log(authing);
   return (
     <aside className={!authing && closedSidebar && 'closedSidebar'}>
     <Input id="closeSidebar" label="close"
-    labelClick={() => {onAuthing(!authing); setclosedSidebar(authing)}}
+    labelClick={() => onAuthing(false)}
     type="checkbox" />
-    {closedSidebar ? <Login toggle={() => setclosedSidebar(!closedSidebar)} /> : <Register toggle={() => setclosedSidebar(!closedSidebar)} /> }
+    {authing === 'login' && <Login onAuthing={onAuthing} />}
+    {authing === 'register' && <Register onAuthing={onAuthing} />}
     </aside>
   )
 }
