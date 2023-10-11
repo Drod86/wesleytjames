@@ -2,10 +2,10 @@ import React from 'react';
 
 import './Input.css';
 
-export default function Input({id, label="", type, step=null, value, onChange, placeholder}) {
+export default function Input({id, label="", type, step=null, value, onChange, placeholder, labelClick}) {
   return (
     <div className="input">
-      <label htmlFor={id}>{label}</label>
+      {label && <label htmlFor={id} onClick={labelClick}>{label}</label>}
       <input
         type={type}
         step={step}

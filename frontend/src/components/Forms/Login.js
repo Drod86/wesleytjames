@@ -3,12 +3,13 @@ import Input from "./Input";
 import Button from "../Button/Button";
 import './Forms.css';
 
-export default function Login() {
+export default function Login({toggle}) {
   return (
     <form className="login">
       <Input id="login-email" type="email" onChange={(e) => console.log(e.target.value)} placeholder={'email'} />
-      <Input />
+      <Input id="login-password" type="password" onChange={(e) => console.log(e.target.value)} placeholder={'password'} />
       <Button text="Login" type="submit" handleClick={() => console.log('login')} />
+      <a href="#register" onClick={toggle}>Register</a>
     </form>
   )
 }

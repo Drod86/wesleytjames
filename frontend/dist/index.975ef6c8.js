@@ -27163,26 +27163,41 @@ var _header = require("./components/Header/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 var _main = require("./components/Main/Main");
 var _mainDefault = parcelHelpers.interopDefault(_main);
+var _s = $RefreshSig$();
 function App() {
+    _s();
+    const [authenticating, setAuthenticating] = (0, _react.useState)(false);
+    const [authenticated, setAuthenticated] = (0, _react.useState)(false);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).Fragment, {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
-                fileName: "src/App.js",
-                lineNumber: 9,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {
+                auth: authenticated,
+                onAuth: ()=>setAuthenticated(!authenticated),
+                authing: authenticating,
+                onAuthing: ()=>setAuthenticating(!authenticating)
+            }, void 0, false, {
                 fileName: "src/App.js",
                 lineNumber: 10,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainDefault.default), {
+                auth: authenticated,
+                onAuth: ()=>setAuthenticated(!authenticated),
+                authing: authenticating,
+                onAuthing: ()=>setAuthenticating(!authenticating)
+            }, void 0, false, {
+                fileName: "src/App.js",
+                lineNumber: 13,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 8,
+        lineNumber: 9,
         columnNumber: 5
     }, this);
 }
+_s(App, "F+vkDDEyT6qBGE97ofTd5JvZ5hY=");
 _c = App;
 exports.default = App;
 var _c;
@@ -27230,7 +27245,12 @@ const Header = (props)=>{
                 lineNumber: 8,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default), {
+                auth: props.auth,
+                onAuth: props.onAuth,
+                authing: props.authing,
+                onAuthing: props.onAuthing
+            }, void 0, false, {
                 fileName: "src/components/Header/Header.js",
                 lineNumber: 9,
                 columnNumber: 7
@@ -27438,7 +27458,7 @@ var _navItemDefault = parcelHelpers.interopDefault(_navItem);
 var _button = require("../Button/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _navCss = require("./Nav.css");
-function Nav() {
+function Nav({ auth, onAuth, authing, onAuthing }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
         className: "nav",
         children: [
@@ -27463,14 +27483,32 @@ function Nav() {
                 lineNumber: 11,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+            auth ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                className: "sign-out",
                 type: "button",
-                text: "Login",
-                handleClick: ()=>console.log("clicked")
+                text: "sign out",
+                handleClick: onAuth
             }, void 0, false, {
                 fileName: "src/components/Nav/Nav.js",
                 lineNumber: 12,
-                columnNumber: 7
+                columnNumber: 15
+            }, this) : authing ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                className: "button button-register",
+                type: "button",
+                text: "Register",
+                handleClick: onAuthing
+            }, void 0, false, {
+                fileName: "src/components/Nav/Nav.js",
+                lineNumber: 13,
+                columnNumber: 19
+            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                type: "button",
+                text: "Login",
+                handleClick: onAuthing
+            }, void 0, false, {
+                fileName: "src/components/Nav/Nav.js",
+                lineNumber: 14,
+                columnNumber: 11
             }, this)
         ]
     }, void 0, true, {
@@ -27582,7 +27620,7 @@ var _slideshow = require("../Slideshow/Slideshow");
 var _slideshowDefault = parcelHelpers.interopDefault(_slideshow);
 var _sidebar = require("../Sidebar/Sidebar");
 var _sidebarDefault = parcelHelpers.interopDefault(_sidebar);
-function Main() {
+function Main({ auth, onAuth, authing, onAuthing }) {
     const patronName = "Daniel";
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         children: [
@@ -27600,7 +27638,12 @@ function Main() {
                 lineNumber: 13,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sidebarDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sidebarDefault.default), {
+                auth: auth,
+                onAuth: onAuth,
+                authing: authing,
+                onAuthing: onAuthing
+            }, void 0, false, {
                 fileName: "src/components/Main/Main.js",
                 lineNumber: 14,
                 columnNumber: 7
@@ -27938,19 +27981,51 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _login = require("../Forms/Login");
 var _loginDefault = parcelHelpers.interopDefault(_login);
 var _sidebarCss = require("./Sidebar.css");
-function Sidebar() {
+var _register = require("../Forms/register");
+var _registerDefault = parcelHelpers.interopDefault(_register);
+var _input = require("../Forms/Input");
+var _inputDefault = parcelHelpers.interopDefault(_input);
+var _s = $RefreshSig$();
+function Sidebar({ auth, onAuth, authing, onAuthing }) {
+    _s();
+    const [closedSidebar, setclosedSidebar] = (0, _react.useState)(true);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {}, void 0, false, {
-            fileName: "src/components/Sidebar/Sidebar.js",
-            lineNumber: 8,
-            columnNumber: 5
-        }, this)
-    }, void 0, false, {
+        className: !authing && closedSidebar && "closedSidebar",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "closeSidebar",
+                label: "close",
+                labelClick: ()=>{
+                    onAuthing(!authing);
+                    setclosedSidebar(authing);
+                },
+                type: "checkbox"
+            }, void 0, false, {
+                fileName: "src/components/Sidebar/Sidebar.js",
+                lineNumber: 11,
+                columnNumber: 5
+            }, this),
+            closedSidebar ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
+                toggle: ()=>setclosedSidebar(!closedSidebar)
+            }, void 0, false, {
+                fileName: "src/components/Sidebar/Sidebar.js",
+                lineNumber: 14,
+                columnNumber: 22
+            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registerDefault.default), {
+                toggle: ()=>setclosedSidebar(!closedSidebar)
+            }, void 0, false, {
+                fileName: "src/components/Sidebar/Sidebar.js",
+                lineNumber: 14,
+                columnNumber: 82
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "src/components/Sidebar/Sidebar.js",
-        lineNumber: 7,
+        lineNumber: 10,
         columnNumber: 5
     }, this);
 }
+_s(Sidebar, "WCuKQ+ZpigZwgSFn0WoQ9NqbiEo=");
 _c = Sidebar;
 var _c;
 $RefreshReg$(_c, "Sidebar");
@@ -27960,7 +28035,7 @@ $RefreshReg$(_c, "Sidebar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react/jsx-dev-runtime":"iTorj","./Sidebar.css":"8PMVv","../Forms/Login":"fya3t"}],"8PMVv":[function() {},{}],"fya3t":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Forms/Login":"fya3t","./Sidebar.css":"8PMVv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Forms/register":"25F3G","../Forms/Input":"1wn9n"}],"fya3t":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ef8a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27978,7 +28053,7 @@ var _inputDefault = parcelHelpers.interopDefault(_input);
 var _button = require("../Button/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _formsCss = require("./Forms.css");
-function Login() {
+function Login({ toggle }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
         className: "login",
         children: [
@@ -27992,7 +28067,12 @@ function Login() {
                 lineNumber: 9,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "login-password",
+                type: "password",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "password"
+            }, void 0, false, {
                 fileName: "src/components/Forms/Login.js",
                 lineNumber: 10,
                 columnNumber: 7
@@ -28004,6 +28084,15 @@ function Login() {
             }, void 0, false, {
                 fileName: "src/components/Forms/Login.js",
                 lineNumber: 11,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: "#register",
+                onClick: toggle,
+                children: "Register"
+            }, void 0, false, {
+                fileName: "src/components/Forms/Login.js",
+                lineNumber: 12,
                 columnNumber: 7
             }, this)
         ]
@@ -28036,17 +28125,18 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _inputCss = require("./Input.css");
-function Input({ id, label = "", type, step = null, value, onChange, placeholder }) {
+function Input({ id, label = "", type, step = null, value, onChange, placeholder, labelClick }) {
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "input",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+            label && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                 htmlFor: id,
+                onClick: labelClick,
                 children: label
             }, void 0, false, {
                 fileName: "src/components/Forms/Input.js",
                 lineNumber: 8,
-                columnNumber: 7
+                columnNumber: 17
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                 type: type,
@@ -28076,6 +28166,73 @@ $RefreshReg$(_c, "Input");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input.css":"bDutK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bDutK":[function() {},{}],"7PmcA":[function() {},{}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input.css":"bDutK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bDutK":[function() {},{}],"7PmcA":[function() {},{}],"8PMVv":[function() {},{}],"25F3G":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a5cb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a5cb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Register);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _input = require("./Input");
+var _inputDefault = parcelHelpers.interopDefault(_input);
+var _button = require("../Button/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _formsCss = require("./Forms.css");
+function Register() {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+        className: "register",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "register-email",
+                type: "email",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "email"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "register-password",
+                type: "password",
+                onChange: (e)=>console.log(e.target.value),
+                placeholder: "password"
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 10,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                text: "Register",
+                type: "submit",
+                handleClick: ()=>console.log("register")
+            }, void 0, false, {
+                fileName: "src/components/Forms/register.js",
+                lineNumber: 11,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Forms/register.js",
+        lineNumber: 8,
+        columnNumber: 5
+    }, this);
+}
+_c = Register;
+var _c;
+$RefreshReg$(_c, "Register");
+
+  $parcel$ReactRefreshHelpers$a5cb.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input":"1wn9n","../Button/Button":"bxC6O","./Forms.css":"7PmcA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7PmcA":[function() {},{}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
 
 //# sourceMappingURL=index.975ef6c8.js.map

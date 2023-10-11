@@ -1,5 +1,30 @@
-.login {
+.login, .register {
   background-color: black;
-  padding: .6rem;
+  padding: 1.2rem;
   border-radius: .3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.login button,
+.register button {
+  margin: auto;
+}
+
+.register {
+  background-color: white;
+}
+
+.register input {
+  border: 1px solid lime;
+}
+
+.register button {
+  background-color: black;
+}
+
+form a { 
+  color: lime;
 }

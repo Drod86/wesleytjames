@@ -94,6 +94,11 @@
   transform: scale(1);
 }
 
+.button-register {
+  color: #32cd32;
+  background-color: #fff;
+}
+
 main {
   background-image: linear-gradient(#fafafa80 98%, #0f0), url("https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?cs=srgb&dl=pexels-li-sun-2294361.jpg&fm=jpg");
   background-repeat: no-repeat;
@@ -348,21 +353,8 @@ main {
   margin: 0 .25rem;
 }
 
-aside {
-  background-color: #0f0;
-  border-radius: .3rem;
-  width: 20vw;
-  height: -moz-fit-content;
-  height: fit-content;
-  margin: 4.8rem 1.2rem;
-  padding: .3rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .input {
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .input label {
@@ -375,8 +367,9 @@ aside {
   font: inherit;
   background: #fff;
   border: 1px solid #ccc;
+  border-radius: .2rem;
   width: 100%;
-  padding: .15rem .25rem;
+  padding: .6rem;
   display: block;
 }
 
@@ -386,10 +379,75 @@ aside {
   outline: none;
 }
 
-.login {
+label {
+  color: #fff;
+}
+
+.login, .register {
   background-color: #000;
   border-radius: .3rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  display: flex;
+}
+
+.login button, .register button {
+  margin: auto;
+}
+
+.register {
+  background-color: #fff;
+}
+
+.register input {
+  border: 1px solid #0f0;
+}
+
+.register button {
+  background-color: #000;
+}
+
+form a {
+  color: #0f0;
+}
+
+aside {
+  background-color: #0f0;
+  border-radius: .3rem;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+  width: 20vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 4.8rem 1.2rem;
   padding: .6rem;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+aside label {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  top: .3rem;
+  right: .6rem;
+}
+
+aside label:hover {
+  text-decoration: underline;
+}
+
+aside label:active {
+  text-decoration: none;
+}
+
+#closeSidebar, .closedSidebar {
+  display: none;
 }
 
 * {

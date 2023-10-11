@@ -22,3 +22,8 @@
   transform: scale(100%);
   transition: .05s ease-in all;
 }
+
+.button-register {
+  background-color: white;
+  color: limegreen;
+}

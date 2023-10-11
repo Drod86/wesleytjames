@@ -7,5 +7,32 @@ aside {
   top: 0;
   right: 0;
   margin: 4.8rem 1.2rem;
-  padding: .3rem;
+  padding: .6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
 }
+
+aside label {
+  width: fit-content;
+  position: absolute;
+  right: .6rem;
+  top: .3rem
+}
+
+aside label:hover {
+  text-decoration: underline;
+}
+
+aside label:active {
+  text-decoration: none;
+}
+#closeSidebar {
+  display: none;
+}
+
+.closedSidebar {
+  display: none;
+}
+
