@@ -18,6 +18,16 @@
 	}
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .slideshow {
   display: flex;
   justify-content: center;
@@ -27,7 +37,13 @@
   transform-style: preserve-3d;
   transform-origin: center;
   transition: transform 1s;
-  animation: fadeToScale 3s ease 0s 1 normal;
+  animation: fadeToScale 1s ease 0s 1 normal;
+  /* display: none; */
+}
+
+.fadeOut {
+  animation: fadeOut 3s ease-out;
+  display: none;
 }
 
 .back-button {

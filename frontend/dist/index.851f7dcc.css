@@ -139,6 +139,17 @@ main {
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
 .slideshow {
   transform-style: preserve-3d;
   transform-origin: center;
@@ -148,8 +159,13 @@ main {
   height: -moz-fit-content;
   height: fit-content;
   transition: transform 1s;
-  animation: 3s fadeToScale;
+  animation: 1s fadeToScale;
   display: flex;
+}
+
+.fadeOut {
+  animation: 3s ease-out fadeOut;
+  display: none;
 }
 
 .back-button {
@@ -453,6 +469,58 @@ aside label:active {
 
 #closeSidebar, .closedSidebar {
   display: none;
+}
+
+.product-view {
+  border-radius: .3rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2em;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  padding: 2.4rem;
+  display: flex;
+  position: relative;
+  top: -6rem;
+}
+
+.product-view .product-card {
+  padding: none;
+  background-color: #0f0;
+  flex: 1;
+  width: 150%;
+  height: 100%;
+  margin: 0;
+}
+
+.product-view .product-card button {
+  display: none;
+}
+
+.product-view label {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: .6rem;
+  position: absolute;
+  top: .3rem;
+  right: .6rem;
+}
+
+.product-view label:hover, .product-view label:active {
+  text-decoration: underline;
+}
+
+#close-product-view {
+  display: none;
+}
+
+.product-view .calendar {
+  background-color: #fff;
+  border-radius: .3rem;
+  width: 66.66%;
+  height: 100%;
+  transform: skewY(6deg);
 }
 
 * {

@@ -9,7 +9,7 @@ export default function Login({onAuthing}) {
       <Input id="login-email" type="email" onChange={(e) => console.log(e.target.value)} placeholder={'email'} />
       <Input id="login-password" type="password" onChange={(e) => console.log(e.target.value)} placeholder={'password'} />
       <Button text="Login" type="submit" handleClick={() => console.log('login')} />
-      <a href="#register" onClick={() => {onAuthing('register'); console.log('register123')}}>Register</a>
+      <a href="#register" onClick={() => onAuthing('register')}>Register</a>
     </form>
   )
 }

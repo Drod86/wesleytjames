@@ -27173,7 +27173,6 @@ function App() {
     };
     const handleLoginToggle = (newState = false)=>{
         setAuthenticating(newState);
-        console.log(newState);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).Fragment, {
         children: [
@@ -27184,7 +27183,7 @@ function App() {
                 onAuthing: handleLoginToggle
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 18,
+                lineNumber: 17,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainDefault.default), {
@@ -27194,13 +27193,13 @@ function App() {
                 onAuthing: handleLoginToggle
             }, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 21,
+                lineNumber: 20,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 17,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 }
@@ -27624,14 +27623,24 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _mainCss = require("./Main.css");
+var _database = require("../../data/Database");
 var _heading = require("../Typography/Heading");
 var _headingDefault = parcelHelpers.interopDefault(_heading);
 var _slideshow = require("../Slideshow/Slideshow");
 var _slideshowDefault = parcelHelpers.interopDefault(_slideshow);
+var _productView = require("../Products/ProductView");
+var _productViewDefault = parcelHelpers.interopDefault(_productView);
 var _sidebar = require("../Sidebar/Sidebar");
 var _sidebarDefault = parcelHelpers.interopDefault(_sidebar);
+var _s = $RefreshSig$();
 function Main({ auth, onAuth, authing, onAuthing }) {
+    _s();
     const patronName = "Daniel";
+    const [activeProduct, setActiveProduct] = (0, _react.useState)(false);
+    const grabProduct = (id)=>{
+        setActiveProduct(id);
+    };
+    const productData = (0, _database.products).filter((product)=>product.id === activeProduct)[0];
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("main", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headingDefault.default), {
@@ -27640,13 +27649,25 @@ function Main({ auth, onAuth, authing, onAuthing }) {
                 className: "hero-heading"
             }, void 0, false, {
                 fileName: "src/components/Main/Main.js",
-                lineNumber: 12,
+                lineNumber: 18,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _slideshowDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _slideshowDefault.default), {
+                slidesData: (0, _database.products),
+                grabProduct: grabProduct,
+                activeProduct: activeProduct
+            }, void 0, false, {
                 fileName: "src/components/Main/Main.js",
-                lineNumber: 13,
+                lineNumber: 19,
                 columnNumber: 7
+            }, this),
+            activeProduct && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productViewDefault.default), {
+                product: productData,
+                closeView: setActiveProduct
+            }, void 0, false, {
+                fileName: "src/components/Main/Main.js",
+                lineNumber: 20,
+                columnNumber: 25
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _sidebarDefault.default), {
                 auth: auth,
@@ -27655,16 +27676,17 @@ function Main({ auth, onAuth, authing, onAuthing }) {
                 onAuthing: onAuthing
             }, void 0, false, {
                 fileName: "src/components/Main/Main.js",
-                lineNumber: 14,
+                lineNumber: 21,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Main/Main.js",
-        lineNumber: 11,
+        lineNumber: 17,
         columnNumber: 5
     }, this);
 }
+_s(Main, "NUmOMe7ivN885OPOVAiZgFGpE78=");
 _c = Main;
 var _c;
 $RefreshReg$(_c, "Main");
@@ -27674,7 +27696,7 @@ $RefreshReg$(_c, "Main");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Main.css":"h0mnx","../Typography/Heading":"imuFK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Slideshow/Slideshow":"k24pM","../Sidebar/Sidebar":"fHFtW"}],"h0mnx":[function() {},{}],"imuFK":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Main.css":"h0mnx","../Typography/Heading":"imuFK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Slideshow/Slideshow":"k24pM","../Sidebar/Sidebar":"fHFtW","../Products/ProductView":"b6AAr","../../data/Database":"8oTDF"}],"h0mnx":[function() {},{}],"imuFK":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f26f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27777,62 +27799,8 @@ var _productCard = require("../Products/productCard");
 var _productCardDefault = parcelHelpers.interopDefault(_productCard);
 var _slideshowCss = require("./Slideshow.css");
 var _s = $RefreshSig$();
-function Slideshow() {
+function Slideshow({ slidesData, grabProduct, activeProduct }) {
     _s();
-    // The Slides data and data manipulation methods will be abstracted out
-    const slidesData = [
-        {
-            title: "Intro",
-            featureList: [
-                "fake feature 1",
-                "fake feature 2",
-                "fake feature 3",
-                "fake feature 4",
-                "fake feature 5"
-            ]
-        },
-        {
-            title: "Session",
-            featureList: [
-                "fake feature 1",
-                "fake feature 2",
-                "fake feature 3",
-                "fake feature 4",
-                "fake feature 5"
-            ]
-        },
-        {
-            title: "Program",
-            featureList: [
-                "fake feature 1",
-                "fake feature 2",
-                "fake feature 3",
-                "fake feature 4",
-                "fake feature 5"
-            ]
-        },
-        {
-            title: "Some Product",
-            featureList: [
-                "fake feature 1",
-                "fake feature 2",
-                "fake feature 3",
-                "fake feature 4",
-                "fake feature 5"
-            ]
-        },
-        {
-            title: "Some Other",
-            featureList: [
-                "fake feature 1",
-                "fake feature 2",
-                "fake feature 3",
-                "fake feature 4",
-                "fake feature 5"
-            ]
-        }
-    ];
-    //////////////////
     const [slides, setSlides] = (0, _react.useState)(slidesData);
     const [slideDirection, setSlideDirection] = (0, _react.useState)("");
     // NOTE: illiminate the need for slide direction
@@ -27863,8 +27831,9 @@ function Slideshow() {
         rotateSlides(slides, direction);
         setTimeout(()=>setSlideDirection(""), 500);
     }
+    console.log(activeProduct);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "slideshow",
+        className: activeProduct ? "fadeOut" : " slideshow",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 className: "back-button",
@@ -27872,16 +27841,17 @@ function Slideshow() {
                 clickParam: "back"
             }, void 0, false, {
                 fileName: "src/components/Slideshow/Slideshow.js",
-                lineNumber: 62,
+                lineNumber: 35,
                 columnNumber: 7
             }, this),
             slides.map((slide, index)=>index < 3 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
                     product: slide,
                     index: index,
-                    direction: slideDirection
+                    direction: slideDirection,
+                    grabProduct: grabProduct
                 }, index, false, {
                     fileName: "src/components/Slideshow/Slideshow.js",
-                    lineNumber: 64,
+                    lineNumber: 37,
                     columnNumber: 22
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
@@ -27890,13 +27860,13 @@ function Slideshow() {
                 clickParam: "forward"
             }, void 0, false, {
                 fileName: "src/components/Slideshow/Slideshow.js",
-                lineNumber: 66,
+                lineNumber: 39,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Slideshow/Slideshow.js",
-        lineNumber: 61,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
@@ -27928,10 +27898,11 @@ var _headingDefault = parcelHelpers.interopDefault(_heading);
 var _button = require("../Button/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _productCardCss = require("./ProductCard.css");
-function ProductCard({ product, index, direction }) {
-    const { title, featureList } = product;
+function ProductCard({ product, index, direction, grabProduct }) {
+    const { id, title, featureList } = product;
     const orderClass = "card" + index;
     const newClass = "product-card " + orderClass + " " + direction;
+    console.log(grabProduct);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: newClass,
         children: [
@@ -27940,29 +27911,30 @@ function ProductCard({ product, index, direction }) {
                 text: title
             }, void 0, false, {
                 fileName: "src/components/Products/productCard.js",
-                lineNumber: 12,
+                lineNumber: 13,
                 columnNumber: 7
             }, this),
             featureList.map((feature, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                     children: feature
                 }, index, false, {
                     fileName: "src/components/Products/productCard.js",
-                    lineNumber: 13,
+                    lineNumber: 14,
                     columnNumber: 44
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 text: "Book it",
                 type: "button",
-                handleClick: ()=>console.log("clicked")
+                handleClick: grabProduct,
+                clickParam: id
             }, void 0, false, {
                 fileName: "src/components/Products/productCard.js",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Products/productCard.js",
-        lineNumber: 11,
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
@@ -27999,7 +27971,6 @@ var _s = $RefreshSig$();
 function Sidebar({ auth, onAuth, authing, onAuthing }) {
     _s();
     const [closedSidebar, setclosedSidebar] = (0, _react.useState)(true);
-    console.log(authing);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("aside", {
         className: !authing && closedSidebar && "closedSidebar",
         children: [
@@ -28010,27 +27981,27 @@ function Sidebar({ auth, onAuth, authing, onAuthing }) {
                 type: "checkbox"
             }, void 0, false, {
                 fileName: "src/components/Sidebar/Sidebar.js",
-                lineNumber: 12,
+                lineNumber: 11,
                 columnNumber: 5
             }, this),
             authing === "login" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginDefault.default), {
                 onAuthing: onAuthing
             }, void 0, false, {
                 fileName: "src/components/Sidebar/Sidebar.js",
-                lineNumber: 15,
+                lineNumber: 14,
                 columnNumber: 29
             }, this),
             authing === "register" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _registerDefault.default), {
                 onAuthing: onAuthing
             }, void 0, false, {
                 fileName: "src/components/Sidebar/Sidebar.js",
-                lineNumber: 16,
+                lineNumber: 15,
                 columnNumber: 32
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Sidebar/Sidebar.js",
-        lineNumber: 11,
+        lineNumber: 10,
         columnNumber: 5
     }, this);
 }
@@ -28097,10 +28068,7 @@ function Login({ onAuthing }) {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                 href: "#register",
-                onClick: ()=>{
-                    onAuthing("register");
-                    console.log("register123");
-                },
+                onClick: ()=>onAuthing("register"),
                 children: "Register"
             }, void 0, false, {
                 fileName: "src/components/Forms/Login.js",
@@ -28261,26 +28229,11 @@ function Register({ onAuthing }) {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                 href: "#login",
-                onClick: ()=>{
-                    onAuthing("login");
-                    console.log("login1 works");
-                },
+                onClick: ()=>onAuthing("login"),
                 children: "Login"
             }, void 0, false, {
                 fileName: "src/components/Forms/register.js",
                 lineNumber: 15,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#login",
-                onClick: ()=>{
-                    onAuthing("login");
-                    console.log("login2 workds");
-                },
-                children: "Login"
-            }, void 0, false, {
-                fileName: "src/components/Forms/register.js",
-                lineNumber: 16,
                 columnNumber: 7
             }, this)
         ]
@@ -28299,6 +28252,138 @@ $RefreshReg$(_c, "Register");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input":"1wn9n","../Button/Button":"bxC6O","./Forms.css":"7PmcA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7PmcA":[function() {},{}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Input":"1wn9n","../Button/Button":"bxC6O","./Forms.css":"7PmcA","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7PmcA":[function() {},{}],"b6AAr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0354 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0354.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>ProductView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _productCard = require("./productCard");
+var _productCardDefault = parcelHelpers.interopDefault(_productCard);
+var _input = require("../Forms/Input");
+var _inputDefault = parcelHelpers.interopDefault(_input);
+var _productViewCss = require("./ProductView.css");
+var _productCardCss = require("./ProductCard.css");
+function ProductView({ product, closeView }) {
+    const { id, title, features } = product;
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "product-view",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _inputDefault.default), {
+                id: "close-product-view",
+                label: "close",
+                labelClick: ()=>closeView(false),
+                type: "checkbox"
+            }, void 0, false, {
+                fileName: "src/components/Products/ProductView.js",
+                lineNumber: 11,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
+                product: product
+            }, void 0, false, {
+                fileName: "src/components/Products/ProductView.js",
+                lineNumber: 14,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "calendar",
+                children: "Calendar"
+            }, void 0, false, {
+                fileName: "src/components/Products/ProductView.js",
+                lineNumber: 15,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Products/ProductView.js",
+        lineNumber: 10,
+        columnNumber: 5
+    }, this);
+}
+_c = ProductView;
+var _c;
+$RefreshReg$(_c, "ProductView");
+
+  $parcel$ReactRefreshHelpers$0354.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./productCard":"kLzcc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductView.css":"8OAgh","./ProductCard.css":"g79ER","../Forms/Input":"1wn9n"}],"8OAgh":[function() {},{}],"g79ER":[function() {},{}],"8oTDF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "products", ()=>products);
+const products = [
+    {
+        id: 1,
+        type: "intro",
+        title: "Intro",
+        featureList: [
+            "fake feature 1",
+            "fake feature 2",
+            "fake feature 3",
+            "fake feature 4",
+            "fake feature 5"
+        ]
+    },
+    {
+        id: 2,
+        type: "single",
+        title: "Session",
+        featureList: [
+            "fake feature 1",
+            "fake feature 2",
+            "fake feature 3",
+            "fake feature 4",
+            "fake feature 5"
+        ]
+    },
+    {
+        id: 3,
+        type: "program",
+        title: "Program",
+        featureList: [
+            "fake feature 1",
+            "fake feature 2",
+            "fake feature 3",
+            "fake feature 4",
+            "fake feature 5"
+        ]
+    },
+    {
+        id: 4,
+        type: "program",
+        title: "Some Product",
+        featureList: [
+            "fake feature 1",
+            "fake feature 2",
+            "fake feature 3",
+            "fake feature 4",
+            "fake feature 5"
+        ]
+    },
+    {
+        id: 5,
+        type: "single",
+        title: "Some Other",
+        featureList: [
+            "fake feature 1",
+            "fake feature 2",
+            "fake feature 3",
+            "fake feature 4",
+            "fake feature 5"
+        ]
+    }
+];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lyxGu":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequireb02f")
 
 //# sourceMappingURL=index.975ef6c8.js.map

@@ -10,7 +10,6 @@ const handleAuthToggle = () => {
 }
 const handleLoginToggle = (newState = false) => {
   setAuthenticating(newState);
-  console.log(newState);
 }
 
   return (

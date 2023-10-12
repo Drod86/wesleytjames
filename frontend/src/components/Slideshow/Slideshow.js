@@ -3,34 +3,7 @@ import Button from "../Button/Button";
 import ProductCard from "../Products/productCard";
 import './Slideshow.css';
 
-export default function Slideshow(){
-  // The Slides data and data manipulation methods will be abstracted out
-  const slidesData = [
-    {
-      title: 'Intro',
-      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
-    },
-    {
-      title: 'Session',
-      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
-    },
-    {
-      title: 'Program',
-      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
-    },
-    {
-      title: 'Some Product',
-      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
-    },
-    {
-      title: 'Some Other',
-      featureList: [ 'fake feature 1', 'fake feature 2', 'fake feature 3', 'fake feature 4', 'fake feature 5'],
-    },
-  ]
-
-
-
-  //////////////////
+export default function Slideshow({slidesData, grabProduct, activeProduct}){
   const [slides, setSlides] = useState(slidesData)
   const [slideDirection, setSlideDirection] = useState('');
 
@@ -56,12 +29,12 @@ export default function Slideshow(){
     rotateSlides(slides, direction);
     setTimeout(() => setSlideDirection(''), 500);
   }
-
+  console.log(activeProduct);
   return (
-    <div className="slideshow">
+    <div className={ activeProduct ? 'fadeOut' : '' + ' slideshow'}>
       <Button className="back-button" handleClick={handleClick} clickParam="back"/>
       {slides.map((slide, index) => (
-        index < 3 && <ProductCard product={slide} key={index} index={index} direction={slideDirection}/>
+        index < 3 && <ProductCard product={slide} key={index} index={index} direction={slideDirection} grabProduct={grabProduct}/>
       ))}
       <Button className="forward-button" handleClick={handleClick} clickParam="forward"/>
     </div>

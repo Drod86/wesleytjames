@@ -12,7 +12,7 @@ export default function Register({onAuthing}) {
       <Input id="register-password" type="password" onChange={(e) => console.log(e.target.value)} placeholder={'password'} />
       <Input id="register-password-verify" type="password" onChange={(e) => console.log(e.target.value)} placeholder={'verify password'} />
       <Button text="Register" type="submit" handleClick={() => console.log('register')} />
-      <a href="#login" onClick={() => {onAuthing('login'); console.log('login1 works')}}>Login</a>
+      <a href="#login" onClick={() => onAuthing('login')}>Login</a>
     </form>
   )
 }
