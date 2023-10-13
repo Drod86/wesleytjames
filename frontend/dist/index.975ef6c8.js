@@ -27795,7 +27795,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _button = require("../Button/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _productCard = require("../Products/productCard");
+var _productCard = require("../Products/ProductCard");
 var _productCardDefault = parcelHelpers.interopDefault(_productCard);
 var _slideshowCss = require("./Slideshow.css");
 var _s = $RefreshSig$();
@@ -27880,11 +27880,11 @@ $RefreshReg$(_c, "Slideshow");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Button/Button":"bxC6O","./Slideshow.css":"j4fDG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Products/productCard":"kLzcc"}],"j4fDG":[function() {},{}],"kLzcc":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$75fe = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../Button/Button":"bxC6O","./Slideshow.css":"j4fDG","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Products/ProductCard":"4uXbn"}],"j4fDG":[function() {},{}],"4uXbn":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$85d6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$75fe.prelude(module);
+$parcel$ReactRefreshHelpers$85d6.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -27902,7 +27902,6 @@ function ProductCard({ product, index, direction, grabProduct }) {
     const { id, title, featureList } = product;
     const orderClass = "card" + index;
     const newClass = "product-card " + orderClass + " " + direction;
-    console.log(grabProduct);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: newClass,
         children: [
@@ -27910,31 +27909,30 @@ function ProductCard({ product, index, direction, grabProduct }) {
                 type: 2,
                 text: title
             }, void 0, false, {
-                fileName: "src/components/Products/productCard.js",
-                lineNumber: 13,
+                fileName: "src/components/Products/ProductCard.js",
+                lineNumber: 12,
                 columnNumber: 7
             }, this),
             featureList.map((feature, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                     children: feature
                 }, index, false, {
-                    fileName: "src/components/Products/productCard.js",
-                    lineNumber: 14,
+                    fileName: "src/components/Products/ProductCard.js",
+                    lineNumber: 13,
                     columnNumber: 44
                 }, this)),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                 text: "Book it",
                 type: "button",
-                handleClick: grabProduct,
-                clickParam: id
+                handleClick: ()=>grabProduct(id)
             }, void 0, false, {
-                fileName: "src/components/Products/productCard.js",
-                lineNumber: 15,
+                fileName: "src/components/Products/ProductCard.js",
+                lineNumber: 14,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "src/components/Products/productCard.js",
-        lineNumber: 12,
+        fileName: "src/components/Products/ProductCard.js",
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }
@@ -27942,7 +27940,7 @@ _c = ProductCard;
 var _c;
 $RefreshReg$(_c, "ProductCard");
 
-  $parcel$ReactRefreshHelpers$75fe.postlude(module);
+  $parcel$ReactRefreshHelpers$85d6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -28265,13 +28263,14 @@ parcelHelpers.export(exports, "default", ()=>ProductView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _productCard = require("./productCard");
+var _productCard = require("./ProductCard");
 var _productCardDefault = parcelHelpers.interopDefault(_productCard);
 var _input = require("../Forms/Input");
 var _inputDefault = parcelHelpers.interopDefault(_input);
 var _productViewCss = require("./ProductView.css");
 var _productCardCss = require("./ProductCard.css");
 function ProductView({ product, closeView }) {
+    console.log(product);
     const { id, title, features } = product;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "product-view",
@@ -28283,14 +28282,14 @@ function ProductView({ product, closeView }) {
                 type: "checkbox"
             }, void 0, false, {
                 fileName: "src/components/Products/ProductView.js",
-                lineNumber: 11,
+                lineNumber: 12,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
                 product: product
             }, void 0, false, {
                 fileName: "src/components/Products/ProductView.js",
-                lineNumber: 14,
+                lineNumber: 15,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28298,13 +28297,13 @@ function ProductView({ product, closeView }) {
                 children: "Calendar"
             }, void 0, false, {
                 fileName: "src/components/Products/ProductView.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Products/ProductView.js",
-        lineNumber: 10,
+        lineNumber: 11,
         columnNumber: 5
     }, this);
 }
@@ -28317,7 +28316,7 @@ $RefreshReg$(_c, "ProductView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./productCard":"kLzcc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductView.css":"8OAgh","./ProductCard.css":"g79ER","../Forms/Input":"1wn9n"}],"8OAgh":[function() {},{}],"g79ER":[function() {},{}],"8oTDF":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductView.css":"8OAgh","./ProductCard.css":"g79ER","../Forms/Input":"1wn9n","./ProductCard":"4uXbn"}],"8OAgh":[function() {},{}],"g79ER":[function() {},{}],"8oTDF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "products", ()=>products);

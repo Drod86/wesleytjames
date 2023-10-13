@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import ProductCard from "../Products/productCard";
+import ProductCard from "../Products/ProductCard";
 import './Slideshow.css';
 
 export default function Slideshow({slidesData, grabProduct, activeProduct}){

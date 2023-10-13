@@ -1,11 +1,12 @@
 import React from "react";
-import ProductCard from "./productCard";
+import ProductCard from "./ProductCard";
 import Input from "../Forms/Input";
 import './ProductView.css';
 import './ProductCard.css';
 
 export default function ProductView({product, closeView}){
-const {id, title, features} = product;
+  console.log(product);
+  const {id, title, features} = product;
   return (
     <div className="product-view">
     <Input id="close-product-view" label="close"
