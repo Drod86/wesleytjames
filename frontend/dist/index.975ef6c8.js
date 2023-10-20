@@ -28267,6 +28267,8 @@ var _productCard = require("./ProductCard");
 var _productCardDefault = parcelHelpers.interopDefault(_productCard);
 var _input = require("../Forms/Input");
 var _inputDefault = parcelHelpers.interopDefault(_input);
+var _calendar = require("../Calendar/Calendar");
+var _calendarDefault = parcelHelpers.interopDefault(_calendar);
 var _productViewCss = require("./ProductView.css");
 var _productCardCss = require("./ProductCard.css");
 function ProductView({ product, closeView }) {
@@ -28282,28 +28284,25 @@ function ProductView({ product, closeView }) {
                 type: "checkbox"
             }, void 0, false, {
                 fileName: "src/components/Products/ProductView.js",
-                lineNumber: 12,
+                lineNumber: 13,
                 columnNumber: 5
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productCardDefault.default), {
                 product: product
             }, void 0, false, {
                 fileName: "src/components/Products/ProductView.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "calendar",
-                children: "Calendar"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _calendarDefault.default), {}, void 0, false, {
                 fileName: "src/components/Products/ProductView.js",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/Products/ProductView.js",
-        lineNumber: 11,
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
@@ -28316,7 +28315,265 @@ $RefreshReg$(_c, "ProductView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductView.css":"8OAgh","./ProductCard.css":"g79ER","../Forms/Input":"1wn9n","./ProductCard":"4uXbn"}],"8OAgh":[function() {},{}],"g79ER":[function() {},{}],"8oTDF":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./ProductView.css":"8OAgh","./ProductCard.css":"g79ER","../Forms/Input":"1wn9n","./ProductCard":"4uXbn","../Calendar/Calendar":"k2slR"}],"8OAgh":[function() {},{}],"g79ER":[function() {},{}],"k2slR":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$898e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$898e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Calendar);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _calendarCss = require("./Calendar.css");
+var _week = require("./Week");
+var _weekDefault = parcelHelpers.interopDefault(_week);
+var _s = $RefreshSig$();
+function Calendar() {
+    _s();
+    const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "Augustu",
+        "Sepetember",
+        "October",
+        "November",
+        "December"
+    ];
+    const [today, setToday] = (0, _react.useState)(new Date());
+    const [credits, setCredits] = (0, _react.useState)(4);
+    const [cue, setCue] = (0, _react.useState)([]);
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const ONEDAYMILSEC = 86400000;
+    const ONEWEEKMILSEC = ONEDAYMILSEC * 7;
+    const firstDay = new Date(year, month, 1);
+    const dayOne = firstDay.getTime() - ONEDAYMILSEC * firstDay.getDay();
+    const thisWeek = new Array(5).fill(dayOne);
+    const weeks = thisWeek.map((value, index)=>value + ONEWEEKMILSEC * index);
+    const toggleCal = (direction)=>{
+        if (direction === "prev") setToday(new Date(year, month - 1, 1));
+        if (direction === "next") setToday(new Date(year, month + 1, 1));
+        if (direction === "today") setToday(new Date());
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "calendar",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "calendarHeading",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>toggleCal("prev"),
+                        children: "prev"
+                    }, void 0, false, {
+                        fileName: "src/components/Calendar/Calendar.js",
+                        lineNumber: 27,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        children: months[month]
+                    }, void 0, false, {
+                        fileName: "src/components/Calendar/Calendar.js",
+                        lineNumber: 28,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: month === new Date().getMonth() ? "todayBtn hidden" : "todayBtn",
+                        onClick: ()=>toggleCal("today"),
+                        children: "today"
+                    }, void 0, false, {
+                        fileName: "src/components/Calendar/Calendar.js",
+                        lineNumber: 29,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        onClick: ()=>toggleCal("next"),
+                        children: "next"
+                    }, void 0, false, {
+                        fileName: "src/components/Calendar/Calendar.js",
+                        lineNumber: 30,
+                        columnNumber: 7
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Calendar/Calendar.js",
+                lineNumber: 26,
+                columnNumber: 5
+            }, this),
+            weeks.map((week, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _weekDefault.default), {
+                    dayOne: week,
+                    activeMonth: month,
+                    cue: cue,
+                    handleCue: setCue,
+                    credits: credits
+                }, week, false, {
+                    fileName: "src/components/Calendar/Calendar.js",
+                    lineNumber: 32,
+                    columnNumber: 33
+                }, this))
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Calendar/Calendar.js",
+        lineNumber: 25,
+        columnNumber: 10
+    }, this);
+} /**
+ * 35 days
+ */ 
+_s(Calendar, "b2kY7nBdh4w+dkFFGS0A18Cdfh4=");
+_c = Calendar;
+var _c;
+$RefreshReg$(_c, "Calendar");
+
+  $parcel$ReactRefreshHelpers$898e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Calendar.css":"ck8I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Week":"jW1we"}],"ck8I6":[function() {},{}],"jW1we":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3254 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3254.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Week);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _calendarCss = require("./Calendar.css");
+var _day = require("./Day");
+var _dayDefault = parcelHelpers.interopDefault(_day);
+function Week({ dayOne, activeMonth, cue, handleCue, credits }) {
+    const ONEDAYMILSEC = 86400000;
+    const days2 = new Array(7).fill(dayOne).map((value, index)=>value + ONEDAYMILSEC * index);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "week",
+        children: days2.map((day)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dayDefault.default), {
+                day: day,
+                activeMonth: activeMonth,
+                cue: cue,
+                handleCue: handleCue,
+                credits: credits
+            }, day, false, {
+                fileName: "src/components/Calendar/Week.js",
+                lineNumber: 9,
+                columnNumber: 25
+            }, this))
+    }, void 0, false, {
+        fileName: "src/components/Calendar/Week.js",
+        lineNumber: 8,
+        columnNumber: 10
+    }, this);
+}
+_c = Week;
+var _c;
+$RefreshReg$(_c, "Week");
+
+  $parcel$ReactRefreshHelpers$3254.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Calendar.css":"ck8I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Day":"7Q7Gj"}],"ck8I6":[function() {},{}],"7Q7Gj":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3e66 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3e66.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>Day);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _calendarCss = require("./Calendar.css");
+var _s = $RefreshSig$();
+function Day({ day, activeMonth, cue, handleCue, credits }) {
+    _s();
+    const ONEDAYMILSEC = 86400000;
+    const [picked, setPicked] = (0, _react.useState)(cue.includes(day));
+    const togglePick = (day)=>{
+        let today = new Date().getTime();
+        if (day > today - ONEDAYMILSEC) {
+            if (cue.includes(day)) {
+                let newCue = cue.filter((number)=>number !== day);
+                handleCue(newCue);
+                setPicked(false);
+            } else if (cue.length < credits) {
+                handleCue([
+                    ...cue,
+                    day
+                ]);
+                setPicked(true);
+            } else alert("All out of cretis");
+        }
+    };
+    const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
+    const thisDay = new Date(day);
+    const classes = (day)=>{
+        let className = "day ";
+        const today = new Date();
+        if (day.getMonth() === today.getMonth() && day.getDate() === today.getDate()) className += "today ";
+        if (day < today.getTime() - ONEDAYMILSEC) className += "pastDay ";
+        if (day.getMonth() !== activeMonth) className += "outDay ";
+        return className;
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: picked ? classes(thisDay) + "picked" : classes(thisDay),
+        onClick: ()=>togglePick(day),
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: days[thisDay.getDay()].slice(0, 3)
+            }, void 0, false, {
+                fileName: "src/components/Calendar/Day.js",
+                lineNumber: 40,
+                columnNumber: 5
+            }, this),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: thisDay.getDate()
+            }, void 0, false, {
+                fileName: "src/components/Calendar/Day.js",
+                lineNumber: 41,
+                columnNumber: 5
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Calendar/Day.js",
+        lineNumber: 39,
+        columnNumber: 10
+    }, this);
+}
+_s(Day, "HB3iOhBGU127V+eD5ByJFSZxcaY=");
+_c = Day;
+var _c;
+$RefreshReg$(_c, "Day");
+
+  $parcel$ReactRefreshHelpers$3e66.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Calendar.css":"ck8I6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ck8I6":[function() {},{}],"8oTDF":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "products", ()=>products);

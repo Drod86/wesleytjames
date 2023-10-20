@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 import Input from "../Forms/Input";
+import Calendar from "../Calendar/Calendar";
 import './ProductView.css';
 import './ProductCard.css';
 
@@ -13,7 +14,7 @@ export default function ProductView({product, closeView}){
     labelClick={() => closeView(false)}
     type="checkbox" />
       <ProductCard product={product} />
-      <div className="calendar">Calendar</div>
+      <Calendar />
     </div>
   )
 }

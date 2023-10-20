@@ -523,6 +523,81 @@ aside label:active {
   transform: skewY(6deg);
 }
 
+.calendar {
+  flex-direction: column;
+  gap: .3rem;
+  padding: 1.2rem;
+  display: flex;
+}
+
+.calendarHeading {
+  justify-content: center;
+  gap: 1.2rem;
+  display: flex;
+}
+
+.calendar .hidden {
+  display: none;
+}
+
+.todayBtn {
+  background-color: #0f0;
+  border: none;
+  border-radius: .2rem;
+  padding: .55rem;
+  position: absolute;
+  left: 1.2rem;
+}
+
+.calendar h2 {
+  text-align: center;
+  margin: 0 0 .3rem;
+  padding: 0;
+}
+
+.week {
+  gap: .3rem;
+  height: 20%;
+  display: flex;
+}
+
+.day {
+  border: 1px solid green;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 20%;
+  padding: .24rem;
+  font-size: .5rem;
+  display: flex;
+}
+
+.day:hover {
+  border: 2px dashed #0f0;
+}
+
+.day:active {
+  border: 2px solid #000;
+}
+
+.today {
+  background-color: #0f0;
+}
+
+.pastDay {
+  background-color: #0000001a;
+}
+
+.outDay {
+  color: #fff;
+  background-color: #000;
+}
+
+.picked {
+  color: #000;
+  background-color: #0f0;
+  border: 2px dashed #000;
+}
+
 * {
   box-sizing: border-box;
 }

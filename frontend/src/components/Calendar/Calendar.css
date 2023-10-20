@@ -1,0 +1,79 @@
+.calendar {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.calendarHeading {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.calendar .hidden {
+  display: none;
+}
+
+.todayBtn {
+  position: absolute;
+  padding: .55rem;
+  left: 1.2rem;
+  background-color: lime;
+  border: none;
+  border-radius: .2rem;
+}
+
+.calendar h2 {
+  padding: 0;
+  margin: 0 0 .3rem;
+  /* border: 1px solid red; */
+  text-align: center;
+}
+
+.week {
+  /* border: 1px solid blue; */
+  display: flex;
+  gap: .3rem;
+  height: 20%;
+}
+
+.day {
+  border: 1px solid green;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* flex: 1; */
+  width: 20%;
+  /* height: 20%; */
+  font-size: .5rem;
+  padding: .24rem;
+}
+
+.day:hover {
+  border: 2px dashed lime;
+}
+
+.day:active {
+  border: 2px solid black;
+}
+
+.today {
+  background-color: lime;
+}
+
+.pastDay {
+  background-color: rgba(0, 0, 0, .1)
+}
+
+.outDay {
+  background-color: black;
+  color: white;
+}
+
+.picked {
+  background-color: lime;
+  border: 2px dashed black;
+  color: black;
+}
