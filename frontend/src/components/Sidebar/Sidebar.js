@@ -3,6 +3,7 @@ import Login from "../Forms/Login";
 import './Sidebar.css';
 import Register from "../Forms/register";
 import Input from "../Forms/Input";
+import { users } from "../../data/Database";
 
 export default function Sidebar({auth, onAuth, authing, onAuthing}) {
   const [closedSidebar, setclosedSidebar] = useState(true);
@@ -11,8 +12,17 @@ export default function Sidebar({auth, onAuth, authing, onAuthing}) {
     <Input id="closeSidebar" label="close"
     labelClick={() => onAuthing(false)}
     type="checkbox" />
-    {authing === 'login' && <Login onAuthing={onAuthing} />}
-    {authing === 'register' && <Register onAuthing={onAuthing} />}
+    {
+      !auth 
+      ? <>
+          {authing === 'login' && <Login onAuthing={onAuthing} users={users} />}
+          {authing === 'register' && <Register onAuthing={onAuthing} users={users}/>}
+        </>
+      : <>
+          <h3>You are logged in!</h3>
+        </> 
+    }
+    
     </aside>
   )
 }

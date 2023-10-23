@@ -108,8 +108,11 @@ main {
   background-image: linear-gradient(#fafafa80 98%, #0f0), url("https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?cs=srgb&dl=pexels-li-sun-2294361.jpg&fm=jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  flex-wrap: wrap;
+  justify-content: space-between;
   height: 100vh;
   padding: 3.5rem 4.8rem;
+  display: flex;
 }
 
 .hero-heading {
@@ -117,6 +120,7 @@ main {
 }
 
 .hero-heading {
+  margin: 2.4rem 0 4.8rem;
   font-size: 3.5rem;
 }
 
@@ -153,6 +157,7 @@ main {
 .slideshow {
   transform-style: preserve-3d;
   transform-origin: center;
+  flex: 1;
   justify-content: center;
   align-items: center;
   gap: 1.2rem;

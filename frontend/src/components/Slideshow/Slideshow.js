@@ -29,7 +29,7 @@ export default function Slideshow({slidesData, grabProduct, activeProduct}){
     rotateSlides(slides, direction);
     setTimeout(() => setSlideDirection(''), 500);
   }
-  console.log(activeProduct);
+
   return (
     <div className={ activeProduct ? 'fadeOut' : '' + ' slideshow'}>
       <Button className="back-button" handleClick={handleClick} clickParam="back"/>

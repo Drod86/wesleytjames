@@ -31,4 +31,16 @@ const products = [
     },
   ]
 
-  export { products };
+  const users = {
+    ['daniel.r.rodriguez86@gmail.com'] : {
+      admin: true,
+      firstName: 'Daniel',
+      lastName: 'Rodriguez',
+      email: 'daniel.r.rodriguez86@gmail.com',
+      password: '1234',
+      credits: '0',
+      appointments: []
+    }
+  }
+
+  export { products, users };

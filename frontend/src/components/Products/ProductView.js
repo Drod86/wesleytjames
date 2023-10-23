@@ -6,8 +6,6 @@ import './ProductView.css';
 import './ProductCard.css';
 
 export default function ProductView({product, closeView}){
-  console.log(product);
-  const {id, title, features} = product;
   return (
     <div className="product-view">
     <Input id="close-product-view" label="close"
